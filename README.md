@@ -1,2 +1,2 @@
 # luminespire.github.io
-Homepage
+Repository for [valorance.org](valorance.org).
