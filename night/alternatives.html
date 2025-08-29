@@ -1,0 +1,241 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Night - Alternatives</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a href="index.html" class="title">Alternatives</a>
+				<nav>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="terminology.html">Terminology</a></li>
+						<li><a href="design.html">Design</a></li>
+						<li><a href="statistics.html">Statistics</a></li>
+						<li><a href="credits.html">Credits</a></li>
+						<li><a href="alternatives.html" class="active">Alternatives</a></li>
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main" class="wrapper style1 fade-up">
+						<div class="inner" style="text-align: center;">
+							<h1 class="major">Alternatives</h1>
+							<p>There is no such thing as a perfect layout, period. Every layout has its own pros and cons - Night among them. Thus, it's a good idea to take a look around and see if there're any alternatives that might suit you better.</p>
+							<p><i>I will provide my own opinions on each of the layouts - you can identify them by the italicized text.</i></p>
+							
+							<h2>WIP! (Work In Progress!)</h2>
+							<p>This page is still under construction!</p>
+							<p>Stats are given <i>relative</i> to Night. The more <b style="color: #00ff00;">green</b>, the better. The more <b style="color: #ff0000;">red</b>, the worse.</p>
+							<p>All stats are analyzed through the Monkeyracer corpus using <a href="https://github.com/Apsu/cmini/">cmini</a>.</p>
+							<style>
+								.dropdown {
+									display: grid;
+									grid-template-columns: repeat(2, 1fr);
+									gap: 48px;
+									justify-items: center;
+									margin-bottom: 2em;
+								}
+
+								.dropdown-item {
+									position: relative;
+									width: fit-content;
+								}
+
+								.dropdown-item img {
+									max-width: 100%;
+									height: auto;
+									margin: 0 auto;
+									opacity: 0.5;
+									transition: opacity 0.3s ease;
+								}
+
+								.dropdown-item:hover img {
+									opacity: 1;
+								}
+
+								.description {
+									display: none;
+									position: absolute;
+									top: 100%;
+									left: 0;
+									width: 100%;
+									background-color: rgba(0,0,0,0.5);
+									color: white;
+									padding: 10px;
+									border-radius: 5px;
+									z-index: 1;
+									backdrop-filter: blur(2px);
+								}
+
+								.dropdown-item:hover .description {
+									display: block;
+								}
+
+								@media screen and (max-width: 736px) {
+									.dropdown {
+										grid-template-columns: 1fr;
+									}
+								}
+							</style>
+							<hr />
+							<h3>Stat-Chasers</h3>
+							<p><i>Layouts that focus on highest efficiency.</i></p>
+							<div class="dropdown">
+								<div class="dropdown-item">
+									<img src="images/dusk.png" alt="" />
+									<div class="description">
+										<h3><a href="https://github.com/Aorta3698/dusk/tree/main/src">Dusk</a></h3>
+										<p><b style="color: #ff4400;">+0.11%</b> SFB* <b style="color: #a2ff00;">-0.20%</b> SFS</p>
+										<h4>Pros:</h4>
+										<li>Higher rolls (<b>if</b> using right thumb <code>R</code>).</li>
+										<li><i>Lower index usage.</i></li>
+										<h4>Cons:</h4>
+										<li>Worse SFBs.</li>
+										<li><i>Lower index usage.</i></li>
+										<p></p>
+										<p><i>Perhaps the most well known "modern" stat-chasing layout, Dusk is by far the most comparable to Night, and was partially the inspiration for it.</i></p>
+										<p><i>The choice between Night and Dusk essentially comes down to how much index usage is preferred. More, Night, less, Dusk.</i></p>
+										<p><i>*Majority of the additional SFBs are caused by <code>'</code> alone, and thus is slightly less significant.</i></p>
+									</div>
+								</div>
+								<div class="dropdown-item">
+									<img src="images/racket.png" alt="" />
+									<div class="description">
+										<h3>Racket</h3>
+										<p><b style="color: #15ff00;">-0.06%</b> SFB <b style="color: #ff7b00;">+0.17%</b> SFS</p>
+										<h4>Pros:</h4>
+										<li>About the lowest SFBs you can get.</li>
+										<li>Better finger usage distribution.</li>
+										<h4>Cons:</h4>
+										<li>Rather poor right index-utilization.</li>
+										<li><b>Very</b> heavy left middle finger load.</li>
+										<p></p>
+										<p><i>Among the first thumb <code>R</code> layouts, Racket is around the local minimum for SFBs with a reasonable design and SFS consideration.</i></p>
+										<p><i>Pick this if you dislike index utilization, particularly on the central columns.</i></p>
+									</div>
+								</div>
+							</div>
+								<hr />
+									<div style="text-align: center;">
+									<h3>Comfy-Choices</h3>
+									<p><i>Layouts that focus a bit extra on comfort at the cost of some efficiency.</i></p>
+									</div>
+								<div class="dropdown">
+									<div class="dropdown-item">
+										<img src="images/bunya.png" alt="" />
+										<div class="description">
+											<h3>Bunya</h3>
+											<p><b style="color: #ff5e00;">+0.09%</b> SFB <b style="color: #ff9d00;">+0.06%</b> SFS</p>
+										<h4>Pros:</h4>
+										<li>Low corner and central column usage.</li>
+										<li>Very good finger usage distribution.</li>
+										<h4>Cons:</h4>
+										<li>Low right index utilization.</li>
+										<li>Repeat heavy thumb <code>S</code>.</li>
+										<p></p>
+										<p><i>Designed by the author of Graphite and Gallium, Bunya is the fully uncompromised design of the formers realized.</i></p>
+										<p><i>This is a fantastic pick for any Graphite or Gallium users.</i></p>
+										</div>
+									</div>
+									<div class="dropdown-item">
+										<img src="images/north.png" alt="" />
+										<div class="description">
+										<h3>North</h3>
+										<p><b style="color: #ff4400;">+0.11%</b> SFB <b style="color: #26ff00;">-0.50%</b> SFS</p>
+										<h4>Pros:</h4>
+										<li>Very low corner and central column usage.</li>
+										<li>Very good finger usage distribution.</li>
+										<h4>Cons:</h4>
+										<li>Low-ish right index utilization.</li>
+										<li>Repeat heavy thumb <code>S</code>.</li>
+										<p></p>
+										<p><i>This is essentially a re-tuned version of Bunya. It performs better statistically at the cost of less similarity to Graphite and Gallium.</i></p>
+										<p><i>A good pick if you like Graphite and Gallium but want it slightly more stats-tuned.</i></p>
+										</div>
+									</div>
+								</div>
+							<div style="text-align: center;">
+							<h3>Inrollin'</h3>
+							<p><i>Layouts that optimize for a lot of inrolls.</i></p>
+								</div>
+							<div class="dropdown">
+								<div class="dropdown-item">
+									<img src="images/aptmak.png" alt="" />
+									<div class="description">
+										<h3>APTMAK</h3>
+										<p><b style="color: #ff0000;">+0.60%</b> SFB <b style="color: #ff0000;">+1.47%</b> SFS</p>
+										<h4>Pros:</h4>
+										<li>Very low corner and central column usage.</li>
+										<li>Very good finger usage distribution.</li>
+										<li>Good amount of inrolls.</li>
+										<h4>Cons:</h4>
+										<li>High SFB and SFS.</li>
+										<li>Very repeat heavy thumb <code>E</code>.</li>
+										<p></p>
+										<p><i>Historically popular and created by the author of APT, APTMAK is a thumb alpha variant of APT.</i></p>
+										<p><i>It has a fantastic finger usage distribution, and is a perfect conversion for existing APT users.</i></p>
+									</div>
+								</div>
+								<div class="dropdown-item">
+									<img src="images/rsthd.png" alt="" />
+									<div class="description">
+										<h3><a href="https://simn.me/rsthd/">RSTHD</a></h3>
+										<p><b style="color: #ff0000;">+0.48%</b> SFB <b style="color: #ff0000;">+1.82%</b> SFS</p>
+										<h4>Pros:</h4>
+										<li>Very good finger usage distribution.</li>
+										<li>Good amount of inrolls.</li>
+										<h4>Cons:</h4>
+										<li>High SFB and SFS.</li>
+										<li>Very repeat heavy thumb <code>E</code>.</li>
+										<p></p>
+										<p><i>Historically popular and created by the author of APT, APTMAK is a thumb alpha variant of APT.</i></p>
+										<p><i>It has a fantastic finger usage distribution, and is a perfect conversion for existing APT users.</i></p>
+									</div>
+								</div>
+								<div class="dropdown-item">
+									<img src="images/birdie.png" alt="" />
+									<div class="description">
+										<h3>Birdie</h3>
+										<p><i>Based off of kuntem.</i></p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper style1-alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>Made by: <a href="http://www.youtube.com/@va1orance">Valorance</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
+
