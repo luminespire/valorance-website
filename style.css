@@ -47,22 +47,17 @@ body {
 
 .squircle-link {
     display: inline-block;
-    padding: 0.75rem 1.5rem;
-    
-    background-color: #2a2a2a;
-    border: 1px solid #444;
+    padding: 0.75rem 1.5rem;  
     border-radius: 16px;
-    
     font-size: 1rem;
     font-weight: 500;
     color: #e0e0e0;
     text-decoration: none;
-    
-    transition: background-color 0.2s ease, transform 0.2s ease;
+    box-shadow: 0 0 1rem rgba(228, 228, 228, 0.4);
+    transition: transform 0.2s ease;
 }
 
 .squircle-link:hover {
-    background-color: #3a3a3a;
     transform: translateY(-2px);
 }
 
