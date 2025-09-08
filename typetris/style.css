@@ -13,9 +13,9 @@ body {
 #main-title {
   font-family: 'Press Start 2P', cursive;
   font-size: 4rem;
-  color: #ffffff; /* A nice pink/red from the theme */
+  color: #ffffff;
   margin-bottom: 20px;
-  text-shadow: 4px 4px 0px #181825; /* A little shadow for depth */
+  text-shadow: 4px 4px 0px #181825;
   text-align: center;
 }
 
@@ -151,4 +151,44 @@ body {
 /* Utility class to hide elements */
 .hidden {
   display: none;
+}
+
+#how-to-play {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#how-to-play-toggle {
+  background: none;
+  border: 1px solid #45475a;
+  color: #cdd6f4;
+  font-family: inherit;
+  font-size: 1em;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#how-to-play-toggle:hover {
+  background-color: #45475a;
+}
+
+#how-to-play-content {
+  background-color: #181825;
+  border: 1px solid #45475a;
+  border-radius: 4px;
+  padding: 10px 20px;
+  margin-top: 10px;
+  text-align: left;
+  max-width: 500px;
+}
+
+#how-to-play-content ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+#how-to-play-content li {
+  margin-bottom: 8px;
 }

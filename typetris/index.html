@@ -11,6 +11,23 @@
 </head>
 <body>
     <h1 id="main-title">Typetris</h1>
+    <div id="how-to-play">
+        <button id="how-to-play-toggle">How to Play ▼</button>
+        <div id="how-to-play-content" class="hidden">
+            <ul>
+                <li>This is currently a proof of concept! Many more features to come...</li>
+                <li>Type words to build combos.</li>
+                <li>Press <strong>Enter</strong> to send your combo as an attack to your opponent.</li>
+                <li>Making a mistake will also send your current combo.</li>
+                <li>Don't let your grid reach the top!</li>
+                <li>Dev notes: The opponent right now is your WPM + base WPM + randomly sending lines.<br /><br />
+                    If you have any feature ideas, DM me on Discord: <strong>val0rance</strong><br /><br />
+                    Attacks currently send exactly your combo (the amount of words you typed correctly consecutively). 
+                    In the future, they will have multipliers.
+                </li>
+            </ul>
+        </div>
+    </div>
     <div id="multiplayer-container">
         <div id="player-game" class="game-instance">
             <h2>You</h2>
