@@ -212,9 +212,31 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         handleAttack() {
-            if (this.combo > 0 && this.opponent) {
-                this.opponent.addPenaltyLines(this.combo);
+            const attackPower = this.combo;
+            if (attackPower === 0) {
+                this.combo = 0;
+                this.updateStatus();
+                return;
             }
+
+            const initialWordCount = this.INITIAL_ROWS * this.GRID_COLS;
+            const penaltyWords = Math.max(0, this.wordBank.length - initialWordCount);
+
+            const wordsToClearFromSelf = Math.min(attackPower, penaltyWords);
+            const netAttackToOpponent = attackPower - wordsToClearFromSelf;
+
+            if (wordsToClearFromSelf > 0) {
+                // Remove penalty words from the end of the player's own word bank.
+                this.wordBank.splice(this.wordBank.length - wordsToClearFromSelf, wordsToClearFromSelf);
+                // A full re-render is needed since we are removing words.
+                this.renderGrid();
+                this.updateCaretPosition();
+            }
+
+            if (netAttackToOpponent > 0 && this.opponent) {
+                this.opponent.addPenaltyLines(netAttackToOpponent);
+            }
+
             this.combo = 0;
             this.updateStatus();
         }
