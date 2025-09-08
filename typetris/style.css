@@ -1,0 +1,154 @@
+body {
+  background-color: #1e1e2e;
+  color: #cdd6f4;
+  font-family: 'Courier New', Courier, monospace;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  padding-top: 5vh;
+}
+
+#main-title {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 4rem;
+  color: #ffffff; /* A nice pink/red from the theme */
+  margin-bottom: 20px;
+  text-shadow: 4px 4px 0px #181825; /* A little shadow for depth */
+  text-align: center;
+}
+
+#multiplayer-container {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.game-instance {
+  width: 80%;
+  max-width: 600px;
+  border: 2px solid #45475a;
+  padding: 20px;
+  position: relative;
+  background-color: #313244;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.game-instance h2 {
+  text-align: center;
+  margin-top: 0;
+}
+
+.caret {
+  position: absolute;
+  width: 2px;
+  background-color: #f9e2af; /* Yellow caret */
+  border-radius: 1px;
+  transition: top 0.08s ease-out, left 0.08s ease-out;
+  animation: blink 1s infinite;
+  display: none; /* Hidden by default */
+}
+
+/* When the user is typing, stop the animation to prevent the caret from disappearing */
+.caret.typing {
+  animation: none;
+  opacity: 1;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.word-grid {
+  margin-bottom: 20px;
+}
+
+.word-row {
+  display: flex;
+  /* Words should not wrap within a single row */
+  white-space: nowrap; 
+  padding: 0.5em 0;
+  border-bottom: 1px solid #45475a;
+  opacity: 0.6;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-out;
+}
+
+.word-row:first-child {
+  border-top: 1px solid #45475a;
+  opacity: 1; /* Ensure the first row is fully visible */
+}
+
+.word-cell {
+  /* Use clamp() to create a responsive font size that has a minimum, a scaling preferred size, and a maximum */
+  /* clamp(MIN, PREFERRED, MAX) */
+  font-size: clamp(0.75rem, 2.5vw, 1.2rem);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 0.5em; /* Horizontal padding for spacing */
+  flex-shrink: 0; /* Prevent words from shrinking as the row fills up */
+}
+
+.target-word {
+  text-decoration: underline;
+  text-decoration-color: #a6e3a1;
+  font-weight: bold;
+  color: #a6e3a1;
+}
+
+/* Style for the correctly typed characters */
+.typed-chars {
+  color: #6c7086; /* Dim the typed characters */
+}
+
+.status-bar {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #181825;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+#player-input {
+  width: 100%;
+  padding: 15px;
+  box-sizing: border-box;
+  background-color: #585b70;
+  border: 1px solid #6c7086;
+  color: #cdd6f4;
+  font-size: 1.2em;
+  font-family: inherit;
+  border-radius: 4px;
+}
+
+#player-input:focus {
+  outline: 2px solid #89b4fa;
+}
+
+#restart-btn {
+  width: 100%;
+  padding: 15px;
+  margin-top: 15px;
+  box-sizing: border-box;
+  background-color: #a6e3a1; /* A nice "go" color from the theme */
+  color: #1e1e2e; /* Dark text for contrast */
+  border: none;
+  font-size: 1.2em;
+  font-family: inherit;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#restart-btn:hover {
+  background-color: #b8e9b9;
+}
+
+/* Utility class to hide elements */
+.hidden {
+  display: none;
+}

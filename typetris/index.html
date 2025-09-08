@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typetris Competitive</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 id="main-title">Typetris</h1>
+    <div id="multiplayer-container">
+        <div id="player-game" class="game-instance">
+            <h2>You</h2>
+            <div id="player-caret" class="caret"></div>
+            <div id="player-word-grid" class="word-grid">
+                <!-- Player words will be generated here -->
+            </div>
+            <div id="player-status-bar" class="status-bar">
+                <span>WPM: <span id="player-wpm">0</span></span>
+                <span>Combo: <span id="player-combo">0</span></span>
+                <span>Grid Height: <span id="player-grid-height">4</span></span>
+            </div>
+            <input type="text" id="player-input" placeholder="Type the target word here..." autofocus autocomplete="off" spellcheck="false">
+            <button id="restart-btn" class="hidden">Retry</button>
+        </div>
+
+        <div id="opponent-game" class="game-instance">
+            <h2>Opponent</h2>
+            <div id="opponent-caret" class="caret"></div>
+            <div id="opponent-word-grid" class="word-grid">
+                <!-- Opponent words will be generated here -->
+            </div>
+            <div id="opponent-status-bar" class="status-bar">
+                <span>WPM: <span id="opponent-wpm">0</span></span>
+                <span>Combo: <span id="opponent-combo">0</span></span>
+                <span>Grid Height: <span id="opponent-grid-height">4</span></span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+# A descriptive name for THIS SPECIFIC workflow
+name: Sync Typetris to Homepage
+
+# This section tells the workflow WHEN to run
+on:
+  # Run automatically every time you push to the 'main' branch
+  push:
+    branches:
+      - main
+  # This line adds the manual "Run workflow" button in the Actions tab
+  workflow_dispatch:
+  
+# This section defines the actual jobs to be run
+jobs:
+  build-and-deploy:
+    # Use the latest version of Ubuntu as the operating system
+    runs-on: ubuntu-latest
+    
+    # These are the individual steps within the job
+    steps:
+      # Step 1: Checks out the code from THIS repository
+      - name: Checkout source repo
+        uses: actions/checkout@v4
+        with:
+          path: source-repo
+
+      # Step 2: Checks out the destination repository (your main homepage)
+      - name: Checkout destination repo
+        uses: actions/checkout@v4
+        with:
+          repository: luminespire/valorance-homepage
+          token: ${{ secrets.ACCESS_TOKEN }}
+          path: destination-repo
+
+      # Step 3: Syncs the files to the correct subfolder
+      - name: Sync files
+        run: |
+          mkdir -p destination-repo/typetris 
+          rsync -av --delete --exclude='.git' source-repo/ destination-repo/typetris/
+          
+      # Step 4: Commits and pushes the changes
+      - name: Commit and Push changes
+        run: |
+          cd destination-repo
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git add .
+          git commit -m "Automated sync from typetris repository"
+          git push
