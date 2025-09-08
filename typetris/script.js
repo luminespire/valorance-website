@@ -293,6 +293,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         resetCurrentWordInput() {
+            if (playerInput.disabled) return; // Game is over, do nothing.
+
             if (this.config.isPlayer) {
                 playerInput.value = this.correctPrefix;
             }
