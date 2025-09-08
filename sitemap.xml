@@ -9,47 +9,52 @@
 
 <url>
   <loc>https://www.valorance.org/</loc>
-  <lastmod>2025-09-07T06:38:02+00:00</lastmod>
+  <lastmod>2025-09-08T05:45:58+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://www.valorance.org/night/</loc>
-  <lastmod>2025-09-07T06:38:02+00:00</lastmod>
+  <lastmod>2025-09-08T05:45:58+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.valorance.org/typetris/</loc>
+  <lastmod>2025-09-08T05:45:58+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.valorance.org/night/terminology</loc>
-  <lastmod>2025-09-07T06:38:02+00:00</lastmod>
+  <lastmod>2025-09-08T05:45:58+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://www.valorance.org/night/design</loc>
-  <lastmod>2025-09-07T06:38:02+00:00</lastmod>
+  <lastmod>2025-09-08T05:45:58+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://www.valorance.org/night/reflection</loc>
-  <lastmod>2025-09-07T06:38:02+00:00</lastmod>
+  <lastmod>2025-09-08T05:45:58+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://www.valorance.org/night/alternatives</loc>
-  <lastmod>2025-09-07T06:38:02+00:00</lastmod>
+  <lastmod>2025-09-08T05:45:58+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://www.valorance.org/night/statistics</loc>
-  <lastmod>2025-09-07T06:38:02+00:00</lastmod>
+  <lastmod>2025-09-08T05:45:58+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>https://www.valorance.org/night/variations</loc>
-  <lastmod>2025-09-07T06:38:02+00:00</lastmod>
+  <lastmod>2025-09-08T05:45:58+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>https://www.valorance.org/night/credits</loc>
-  <lastmod>2025-09-07T06:38:02+00:00</lastmod>
+  <lastmod>2025-09-08T05:45:58+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 
