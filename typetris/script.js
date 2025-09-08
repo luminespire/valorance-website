@@ -4,7 +4,71 @@ document.addEventListener('DOMContentLoaded', () => {
     const restartBtn = document.getElementById('restart-btn');
     const howToPlayToggle = document.getElementById('how-to-play-toggle');
     const howToPlayContent = document.getElementById('how-to-play-content');
+    const comboDiffIndicator = document.getElementById('combo-diff-indicator');
+    const dangerBarFill = document.getElementById('danger-bar-fill');
+    const advantageBarFill = document.getElementById('advantage-bar-fill');
     let typingTimeout; // To manage caret blinking
+
+    function updatePlayerDangerBar() {
+        if (!dangerBarFill || !advantageBarFill) return;
+
+        // --- Calculate Player's Danger Ratio (how close they are to capping out) ---
+        const playerPotentialWords = playerGame.wordBank.length + opponentGame.combo;
+        const playerPotentialRows = Math.ceil(playerPotentialWords / playerGame.GRID_COLS);
+        const playerPotentialPenalty = Math.max(0, playerPotentialRows - playerGame.INITIAL_ROWS);
+        const playerMaxPenalty = playerGame.MAX_ROWS - playerGame.INITIAL_ROWS;
+        const playerDangerRatio = playerMaxPenalty > 0 ? playerPotentialPenalty / playerMaxPenalty : 0;
+
+        // --- Calculate Opponent's Danger Ratio (how close player is to capping them out) ---
+        const opponentPotentialWords = opponentGame.wordBank.length + playerGame.combo;
+        const opponentPotentialRows = Math.ceil(opponentPotentialWords / opponentGame.GRID_COLS);
+        const opponentPotentialPenalty = Math.max(0, opponentPotentialRows - opponentGame.INITIAL_ROWS);
+        const opponentMaxPenalty = opponentGame.MAX_ROWS - opponentGame.INITIAL_ROWS;
+        const opponentDangerRatio = opponentMaxPenalty > 0 ? opponentPotentialPenalty / opponentMaxPenalty : 0;
+
+        // --- Determine the tug-of-war state ---
+        let tugOfWarScore;
+
+        // Prioritize "checkmate" scenarios. If one player can cap out the other,
+        // the bar should be full, unless the other player can also cap them out (a draw).
+        const playerWillWin = opponentDangerRatio >= 1;
+        const opponentWillWin = playerDangerRatio >= 1;
+
+        if (playerWillWin && !opponentWillWin) {
+            tugOfWarScore = -1; // Full advantage for player
+        } else if (opponentWillWin && !playerWillWin) {
+            tugOfWarScore = 1; // Full danger for player
+        } else {
+            // If it's a draw (both win) or no one is in a checkmate position,
+            // show the relative advantage based on the difference in danger.
+            tugOfWarScore = playerDangerRatio - opponentDangerRatio;
+        }
+
+        // Clamp the score between -1 and 1 for the bar display
+        const clampedScore = Math.max(-1, Math.min(1, tugOfWarScore));
+
+        if (clampedScore > 0) {
+            // Player is in danger: fill red bar up from the middle.
+            dangerBarFill.style.height = `${clampedScore * 50}%`;
+            advantageBarFill.style.height = '0%';
+        } else {
+            // Player has advantage: fill green bar down from the middle.
+            advantageBarFill.style.height = `${Math.abs(clampedScore) * 50}%`;
+            dangerBarFill.style.height = '0%';
+        }
+    }
+
+    function updateSharedComboIndicator() {
+        const diff = playerGame.combo - opponentGame.combo;
+
+        comboDiffIndicator.classList.toggle('hidden', diff === 0);
+        if (diff !== 0) {
+            comboDiffIndicator.textContent = `X${Math.abs(diff)}`;
+            comboDiffIndicator.classList.toggle('surplus', diff > 0);
+            comboDiffIndicator.classList.toggle('deficit', diff < 0);
+        }
+        updatePlayerDangerBar();
+    }
 
     const allPossibleWords = ["the", "be", "of", "and", "a", "to", "in", "he", "have", "it", "that", "for", "they", "with", "as", "not", "on", "she", "at", "by", "this", "we", "you", "do", "but", "from", "or", "which", "one", "would", "all", "will", "there", "say", "who", "make", "when", "can", "more", "if", "no", "man", "out", "other", "so", "what", "time", "up", "go", "about", "than", "into", "could", "state", "only", "new", "year", "some", "take", "come", "these", "know", "see", "use", "get", "like", "then", "first", "any", "work", "now", "may", "such", "give", "over", "think", "most", "even", "find", "day", "also", "after", "way", "many", "must", "look", "before", "great", "back", "through", "long", "where", "much", "should", "well", "people", "down", "own", "just", "because", "good", "each", "those", "feel", "seem", "how", "high", "too", "place", "little", "world", "very", "still", "nation", "hand", "old", "life", "tell", "write", "become", "here", "show", "house", "both", "between", "need", "mean", "call", "develop", "under", "last", "right", "move", "thing", "general", "school", "never", "same", "another", "begin", "while", "number", "part", "turn", "real", "leave", "might", "want", "point", "form", "off", "child", "few", "small", "since", "against", "ask", "late", "home", "interest", "large", "person", "end", "open", "public", "follow", "during", "present", "without", "again", "hold", "govern", "around", "possible", "head", "consider", "word", "program", "problem", "however", "lead", "system", "set", "order", "eye", "plan", "run", "keep", "face", "fact", "group", "play", "stand", "increase", "early", "course", "change", "help", "line"];
     class Game {
@@ -91,7 +155,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         updateStatus() {
             this.elements.combo.textContent = this.combo;
-            this.elements.height.textContent = Math.ceil(this.wordBank.length / this.GRID_COLS);
+            const currentRows = Math.ceil(this.wordBank.length / this.GRID_COLS);
+            this.elements.height.textContent = currentRows;
+            updateSharedComboIndicator();
         }
 
         updateWPM() {
